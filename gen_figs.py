@@ -46,14 +46,14 @@ a, b = 7, 7
 f = open('hitrate.tex', 'w')
 name = 'figs/0.pdf'
 plot_beta(name, a, b)
-f.write("""\\begin{frame}\\frametitle{Hit Rate Inference}\\begin{figure}
+f.write("""\\begin{frame}\\frametitle{Hit Rate (Initial Prior)}\\begin{figure}
             \\begin{centering}\includegraphics[scale=0.5]{%s}\\end{centering}\\end{figure}\\end{frame}\n""" % name)
 
 for i, ret in enumerate(rets):
     name = 'figs/%d.pdf' % (i + 1)
     a, b = a + ret, b + 1 - ret
     plot_beta(name, a, b, ret, i + 1)
-    f.write("""\\begin{frame}\\frametitle{Hit Rate Inference}\\begin{figure}
+    f.write("""\\begin{frame}\\frametitle{Hit Rate (Posterior)}\\begin{figure}
                 \\begin{centering}\includegraphics[scale=0.5]{%s}\\end{centering}\\end{figure}\\end{frame}\n""" % name)
 
 f.close()
